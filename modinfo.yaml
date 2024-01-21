@@ -1,0 +1,10 @@
+﻿entrypoint: 
+    dll: main.dll
+    className: SplotchModTemplate.SplotchModTemplate
+attributes:
+    id: com.codemob.splotchmodtemplate
+    name: Splotch Mod Template
+    description: A template for making Splotch mods for Bopl Battle
+    version: "1.0"
+    authors: 
+        - Codemob
