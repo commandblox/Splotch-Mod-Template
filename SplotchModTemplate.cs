@@ -7,8 +7,8 @@ namespace SplotchModTemplate
     {
         public override void OnLoad()
         {
-            Debug.Log("Hello Bopl Battle!");
-            harmony.PatchAll(typeof(BasicPatch));
+            Logger.Log("Hello Bopl Battle!");
+            Harmony.PatchAll(typeof(BasicPatch));
         }
     }
 
@@ -19,14 +19,14 @@ namespace SplotchModTemplate
         [HarmonyPrefix]
         public void AbilityEnter()
         {
-            Debug.Log("Entered ability!");
+            Logger.Log("Entered ability!");
         }
 
         [HarmonyPatch(nameof(Ability.ExitAbility))]
         [HarmonyPrefix]
         public void AbilityExit()
         {
-            Debug.Log("Exited ability!");
+            Logger.Log("Exited ability!");
         }
     }
 }
