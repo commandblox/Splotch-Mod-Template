@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using UnityEngine;
-using Splotch;
 
 namespace SplotchModTemplate
 {
@@ -9,7 +8,7 @@ namespace SplotchModTemplate
         public override void OnLoad()
         {
             Logger.Log("Hello Bopl Battle!");
-            harmony.PatchAll(typeof(BasicPatch));
+            Harmony.PatchAll(typeof(BasicPatch));
         }
     }
 
