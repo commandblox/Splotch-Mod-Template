@@ -1,32 +1,26 @@
-﻿using HarmonyLib;
+﻿using Splotch;
+using Splotch.Event;
+using Splotch.Event.AbilityEvents;
+using Splotch.Event.PlayerEvents;
 using UnityEngine;
 
 namespace SplotchModTemplate
 {
-    public class SplotchModTemplate : Splotch.SplotchMod
+    public class SplotchModTemplate : SplotchMod
     {
         public override void OnLoad()
         {
-            Debug.Log("Hello Bopl Battle!");
-            harmony.PatchAll(typeof(BasicPatch));
+            Logger.Log("Hello Bopl Battle!");
+            EventManager.RegisterEventListener(typeof(EventListener));
+
         }
     }
-
-    [HarmonyPatch(typeof(Ability))]
-    public class BasicPatch
+    public static class EventListener
     {
-        [HarmonyPatch(nameof(Ability.EnterAbility))]
-        [HarmonyPrefix]
-        public void AbilityEnter()
+        [EventHandler]
+        public static void OnPlayerDeath(PlayerDeathEvent deathEvent)
         {
-            Debug.Log("Entered ability!");
-        }
-
-        [HarmonyPatch(nameof(Ability.ExitAbility))]
-        [HarmonyPrefix]
-        public void AbilityExit()
-        {
-            Debug.Log("Exited ability!");
+            Logger.Log($"Player {deathEvent.GetPlayer().Color.name} died of {deathEvent.GetCauseOfDeath()}!");
         }
     }
 }
