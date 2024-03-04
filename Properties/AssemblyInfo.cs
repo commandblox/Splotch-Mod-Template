@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Bopl battle base mod")]
+[assembly: AssemblyTitle("Bopl battle base mod")] // CHANGE THIS TO YOUR OWN MOD NAME
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Bopl battle base mod")]
+[assembly: AssemblyProduct("Bopl battle base mod")] // CHANGE THIS TO YOUR OWN MOD NAME
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -18,9 +18,6 @@ using System.Runtime.InteropServices;
 // to COM components.  If you need to access a type in this assembly from
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
-
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6f334169-d181-4bf6-a184-dca7a893efd6")]
 
 // Version information for an assembly consists of the following four values:
 //
