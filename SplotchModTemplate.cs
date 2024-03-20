@@ -9,8 +9,14 @@ namespace SplotchModTemplate
 {
     public class SplotchModTemplate : SplotchMod
     {
+    
         public override void OnLoad()
         {
+            if (!CheckDependencies())
+            {
+                Logger.Warning("Dependency check failed. Modname will not load.");
+                return;
+            }
             Logger.Log("Hello Bopl Battle!");
             EventManager.RegisterEventListener(typeof(EventListener));
             Harmony.PatchAll(typeof(HarmonyPatches));
@@ -37,5 +43,22 @@ namespace SplotchModTemplate
             IcePlatformSlipperyness01.SetValue(__instance, (Fix) 1.01);
             PlatformSlipperyness01.SetValue(__instance, (Fix) 1.01);
         }
+    }
+    private bool CheckDependencies()
+    {
+        // Get the dependencies
+        string[] dependencies = ModInfo.dependencies;
+
+        // Check if all dependencies are loaded
+        foreach (string dependency in dependencies)
+        {
+            if (!ModManager.loadedMods.Any(mod => mod.id == dependency))
+            {
+                Logger.Warning($"Dependency '{dependency}' not found.");
+                return false;
+            }
+        }
+
+        return true;
     }
 }
