@@ -8,3 +8,5 @@ attributes:
     version: "1.0"
     authors: 
         - Codemob
+    dependencies:
+        - com.example.modname
